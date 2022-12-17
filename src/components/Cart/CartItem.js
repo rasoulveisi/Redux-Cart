@@ -6,7 +6,10 @@ const CartItem = (props) => {
   return (
     <li className={classes.item}>
       <div className={classes.container}>
-        <div className={classes["container-image"]}>IMAGE</div>
+        <img
+          className={classes["container-image"]}
+          src="https://fakestoreapi.com/img/81fPKd-2AYL._AC_SL1500_.jpg"
+        />
         <div className={classes["container-detail"]}>
           <header>
             <h3>{title}</h3>

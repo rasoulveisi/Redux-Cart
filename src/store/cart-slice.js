@@ -6,8 +6,46 @@ const cartSlice = createSlice({
   name: "cart",
   initialState,
   reducers: {
-    addItemToCart(state, action) {},
-    removeItemFromCart(state, action) {},
+    addItemToCart(state, action) {
+      const newItem = action.payload;
+      const existingItem = state.items.find((item) => item.id === newItem.id);
+      state.totalQuantiy++;
+      // if item is not exist
+      // push new item to the items
+      if (!existingItem) {
+        state.items.push({
+          id: newItem.id,
+          title: newItem.title,
+          price: newItem.price,
+          // category: newItem.category,
+          description: newItem.description,
+          image: newItem.image,
+          quantity: 1,
+          totalPrice: newItem.price,
+        });
+      }
+      // else
+      // update total quantity and total price
+      else {
+        existingItem.quantity++;
+        existingItem.totalPrice += existingItem.price;
+      }
+    },
+    removeItemFromCart(state, action) {
+      const id = action.payload;
+      const existingItem = state.items.find((item) => item.id === id);
+      // if it is the last item:
+      // delete item from existing list
+      if (existingItem.quantity === 1) {
+        state.items = state.items.filter((item) => item.id !== id);
+      }
+      // else
+      // update total quantity and total price
+      else {
+        existingItem.quantity--;
+        existingItem.totalPrice -= existingItem.price;
+      }
+    },
   },
 });
 

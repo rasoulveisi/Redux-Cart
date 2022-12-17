@@ -15,9 +15,10 @@
 }
 
 .container-image {
-  margin: auto 0rem;
-  background-color: #1ac5d1;
-  padding: 2rem 1rem;
+  margin: auto;
+  max-width: 4rem;
+  border: 2px solid #1ac5d1;
+  /* padding: 1rem; */
 }
 
 .container-detail {

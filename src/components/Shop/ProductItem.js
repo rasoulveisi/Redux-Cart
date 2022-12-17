@@ -2,13 +2,13 @@ import Card from "../UI/Card";
 import classes from "./ProductItem.module.css";
 
 const ProductItem = (props) => {
-  const { title, price, description, id } = props;
+  const { title, price, description, id, image } = props;
 
   return (
     <li className={classes.item}>
       <Card>
         <div className={classes.card}>
-          <div className={classes["card-image"]}>IMAGE</div>
+          <img src={image} alt={title} className={classes["card-image"]} />
           <div>
             <header>
               <h3>{title}</h3>

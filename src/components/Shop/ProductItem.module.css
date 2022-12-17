@@ -8,9 +8,8 @@
   justify-content: left;
 }
 .card-image {
-  margin: auto 0rem;
-  background-color: #1ac5d1;
-  padding: 2rem 1rem;
+  margin: auto;
+  max-width: 4rem;
 }
 .item header {
   margin: 0rem 1rem;
