@@ -6,7 +6,7 @@
 
 .item h3 {
   margin: 0rem 0;
-  font-size: 1.25rem;
+  font-size: 1rem;
 }
 
 .container {
@@ -33,22 +33,29 @@
   margin: 0rem 1rem;
 }
 
-.quantity span {
-  font-size: 1.5rem;
+.quantity {
+  font-size: 1rem;
   font-weight: bold;
   background-color: #1ac5d1;
-  padding: 0.1rem 1rem;
+  margin-left: 1rem;
+  padding: 0rem 0.5rem;
   border-radius: 4px;
+  width: 2rem;
+  text-align: center;
+}
+
+.quantity span {
+  font-size: 0.7rem;
 }
 
 .price {
-  font-size: 1rem;
+  font-size: 0.75rem;
   font-weight: bold;
 }
 
 .itemprice {
   font-weight: normal;
-  font-size: 1rem;
+  font-size: 0.75rem;
   font-style: italic;
   color: #1ac5d1;
 }
