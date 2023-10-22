@@ -25,7 +25,7 @@ const CartItem = (props) => {
   return (
     <li className={classes.item}>
       <div className={classes.container}>
-        <img className={classes["container-image"]} src={image} />
+        <img className={classes["container-image"]} src={image} alt="" />
         <div className={classes["container-detail"]}>
           <header>
             <h3>{title}</h3>
