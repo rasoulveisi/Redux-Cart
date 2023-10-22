@@ -15,7 +15,7 @@ export const getCart = () => {
     dispatch(
       cartActions.replaceCart({
         items: cartData.items || [],
-        totalQuantity: cartData.totalQuantity,
+        totalQuantity: cartData.totalQuantity ?? 0,
       })
     );
   };

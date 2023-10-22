@@ -1,16 +1,20 @@
-import { useEffect } from "react";
-import { useSelector, useDispatch } from "react-redux";
+import React, { Suspense, lazy, useEffect } from "react";
 
-import Cart from "./components/Cart/Cart";
-import Layout from "./components/Layout/Layout";
-import Products from "./components/Shop/Products";
+import { useSelector, useDispatch } from "react-redux";
+import { Routes, Route } from "react-router-dom";
+
+import MainHeader from "./components/Layout/MainHeader";
 import { fetchProduct } from "./store/product-action";
 import { getCart, setCart } from "./store/cart-action";
+import { Container } from "react-bootstrap";
+
+const Cart = lazy(() => import("./components/Cart/Cart"));
+const Products = lazy(() => import("./components/Shop/Products"));
+
 let isInitial = true;
 
 function App() {
   const dispatch = useDispatch();
-  const showCart = useSelector((state) => state.ui.cartIsVisible);
   const cart = useSelector((state) => state.cart);
 
   useEffect(() => {
@@ -33,10 +37,19 @@ function App() {
   }, [cart, dispatch]);
 
   return (
-    <Layout>
-      {showCart && <Cart />}
-      <Products />
-    </Layout>
+    <>
+      <MainHeader />
+      <Container>
+        <Suspense fallback={<div>Loading...</div>}>
+          <Routes>
+            <Route>
+              <Route path="/" element={<Products />} />
+              <Route path="/cart" element={<Cart />} />
+            </Route>
+          </Routes>
+        </Suspense>
+      </Container>
+    </>
   );
 }
 

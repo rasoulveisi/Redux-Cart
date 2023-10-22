@@ -1,0 +1,13 @@
+.img-container {
+  height: 140px;
+  object-fit: contain;
+}
+
+.ellipse-2line {
+  display: -webkit-box;
+  -webkit-line-clamp: 4;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: break-spaces;
+}

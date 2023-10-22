@@ -1,13 +1,13 @@
-import Card from "../UI/Card";
-import classes from "./ProductItem.module.css";
-import { useDispatch, useSelector } from "react-redux";
+import "./ProductItems.css";
+import { useDispatch } from "react-redux";
 import { cartActions } from "../../store/cart-slice";
+import { Card, Button } from "react-bootstrap";
 
 const ProductItem = (props) => {
   const dispatch = useDispatch();
   const { title, price, description, id, image } = props;
 
-  const addToCartHandler = () => {
+  const onAddToCart = () => {
     dispatch(
       cartActions.addItemToCart({
         id,
@@ -20,23 +20,22 @@ const ProductItem = (props) => {
   };
 
   return (
-    <li className={classes.item}>
-      <Card>
-        <div className={classes.card}>
-          <img src={image} alt={title} className={classes["card-image"]} />
-          <div>
-            <header>
-              <h3>{title}</h3>
-            </header>
-            <p>{description}</p>
-          </div>
+    <Card className="col-lg-3 col-md-4 col-sm-6 col-12 p-2 ml-1 mb-2">
+      <Card.Img src={image} alt={title} className="mx-auto img-container" />
+      <Card.Body className="d-flex flex-column">
+        <Card.Title>{title}</Card.Title>
+        <Card.Text className="flex-grow-1 ellipse-2line">
+          {description}
+        </Card.Text>
+
+        <div className="d-flex justify-content-between align-items-center">
+          <span>${price.toFixed(2)}</span>
+          <Button variant="primary" onClick={onAddToCart}>
+            Add to Cart
+          </Button>
         </div>
-        <div className={classes.actions}>
-          <div className={classes.price}>${price.toFixed(2)}</div>
-          <button onClick={addToCartHandler}>Add to Cart</button>
-        </div>
-      </Card>
-    </li>
+      </Card.Body>
+    </Card>
   );
 };
 
