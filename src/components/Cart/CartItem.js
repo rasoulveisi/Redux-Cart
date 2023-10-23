@@ -1,10 +1,9 @@
-import classes from "./CartItem.module.css";
 import { useDispatch } from "react-redux";
 import { cartActions } from "../../store/cart-slice";
 
 const CartItem = (props) => {
   const dispatch = useDispatch();
-  const { title, quantity, total, price, id, image, description } = props.item;
+  const { title, quantity, total, price, id, image } = props.item;
 
   const plusHandler = () => {
     dispatch(
@@ -12,7 +11,6 @@ const CartItem = (props) => {
         id,
         title,
         price,
-        description,
         image,
       })
     );
@@ -23,30 +21,29 @@ const CartItem = (props) => {
   };
 
   return (
-    <li className={classes.item}>
-      <div className={classes.container}>
-        <img className={classes["container-image"]} src={image} alt="" />
-        <div className={classes["container-detail"]}>
-          <header>
-            <h3>{title}</h3>
-          </header>
-          <p className={classes.price}>
-            ${total.toFixed(2)}
-            <span className={classes.itemprice}>
-              (${price.toFixed(2)}/item)
-            </span>
-          </p>
-          <div className={classes.quantity}>
-            {quantity}
-            <span>x</span>
+    <div class="card mb-3">
+      <div class="row g-0">
+        <div class="col-md-2 d-flex justify-content-center">
+          <img src={image} class="img-fluid rounded-start " alt="..."></img>
+        </div>
+        <div class="col-md-10">
+          <div class="card-body d-flex flex-column h-100">
+            <h3 class="card-title">{title}</h3>
+            <p class="card-text flex-grow-1">
+              <small class="text-body-secondary">
+                <span className="me-2">${total.toFixed(2)}</span>
+                <span>(${price.toFixed(2)}/item)</span>
+              </small>
+            </p>
+            <div>
+              <span>{quantity}x </span>
+              <button onClick={minusHandler}>-</button>
+              <button onClick={plusHandler}>+</button>
+            </div>
           </div>
         </div>
-        <div className={classes["container-actions"]}>
-          <button onClick={minusHandler}>-</button>
-          <button onClick={plusHandler}>+</button>
-        </div>
       </div>
-    </li>
+    </div>
   );
 };
 

@@ -2,11 +2,11 @@ import { Container, Nav, Navbar } from "react-bootstrap";
 import { NavLink } from "react-router-dom";
 import { useSelector } from "react-redux";
 
-const MainHeader = (props) => {
+const MainHeader = () => {
   const cart = useSelector((state) => state.cart);
 
   return (
-    <Navbar className="bg-white shadow-sm">
+    <Navbar className="bg-white shadow-sm mb-3">
       <Container>
         <Nav>
           <Nav.Link to="/" as={NavLink}>
