@@ -1,7 +1,7 @@
 import "./ProductItems.css";
 import { useDispatch } from "react-redux";
-import { cartActions } from "../../store/cart-slice";
 import { Card, Button } from "react-bootstrap";
+import { cartActions } from "../../store/cart-slice";
 
 const ProductItem = (props) => {
   const dispatch = useDispatch();

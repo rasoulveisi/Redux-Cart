@@ -1,12 +1,11 @@
 import React, { Suspense, lazy, useEffect } from "react";
-
 import { useSelector, useDispatch } from "react-redux";
 import { Routes, Route } from "react-router-dom";
+import { Container } from "react-bootstrap";
 
 import MainHeader from "./components/Layout/MainHeader";
 import { fetchProduct } from "./store/product-action";
 import { getCart, setCart } from "./store/cart-action";
-import { Container } from "react-bootstrap";
 
 const Cart = lazy(() => import("./components/Cart/Cart"));
 const Products = lazy(() => import("./components/Shop/Products"));

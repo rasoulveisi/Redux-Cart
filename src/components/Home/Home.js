@@ -1,6 +1,6 @@
 import React from "react";
-import Products from "../Shop/Products";
 import { Row } from "react-bootstrap";
+import Products from "../Shop/Products";
 
 const Home = () => {
   return (

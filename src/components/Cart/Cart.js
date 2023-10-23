@@ -1,8 +1,8 @@
+import { useState } from "react";
+import { useSelector, useDispatch } from "react-redux";
 import { Button, Card, Container } from "react-bootstrap";
 import CartItem from "./CartItem";
-import { useSelector, useDispatch } from "react-redux";
 import { Checkout } from "./Checkout";
-import { useState } from "react";
 import { cartActions } from "../../store/cart-slice";
 
 const Cart = () => {

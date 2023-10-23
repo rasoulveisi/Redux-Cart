@@ -1,6 +1,6 @@
-import { Container, Nav, Navbar } from "react-bootstrap";
-import { NavLink } from "react-router-dom";
 import { useSelector } from "react-redux";
+import { NavLink } from "react-router-dom";
+import { Container, Nav, Navbar } from "react-bootstrap";
 
 const MainHeader = () => {
   const cart = useSelector((state) => state.cart);

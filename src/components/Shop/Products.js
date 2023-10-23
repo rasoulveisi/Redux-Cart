@@ -1,11 +1,15 @@
+import React, { useState, useEffect } from "react";
+import { useSelector } from "react-redux";
 import { Button, Row } from "react-bootstrap";
 import ProductItem from "./ProductItem";
-import { useSelector } from "react-redux";
-import React, { useState } from "react";
 
 const Products = () => {
   const products = useSelector((state) => state.product.items);
   const [filter, setFilter] = useState(products);
+
+  useEffect(() => {
+    setFilter(products);
+  }, [products]);
 
   const onFilter = (cat) => {
     let filteredProduct = products.filter((x) => x.category === cat);
