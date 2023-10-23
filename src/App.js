@@ -10,6 +10,7 @@ import { Container } from "react-bootstrap";
 
 const Cart = lazy(() => import("./components/Cart/Cart"));
 const Products = lazy(() => import("./components/Shop/Products"));
+const Home = lazy(() => import("./components/Home/Home"));
 
 let isInitial = true;
 
@@ -43,7 +44,8 @@ function App() {
         <Suspense fallback={<div>Loading...</div>}>
           <Routes>
             <Route>
-              <Route path="/" element={<Products />} />
+              <Route path="/" element={<Home />} />
+              <Route path="/products" element={<Products />} />
               <Route path="/cart" element={<Cart />} />
             </Route>
           </Routes>

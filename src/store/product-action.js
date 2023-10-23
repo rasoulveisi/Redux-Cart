@@ -3,7 +3,7 @@ import { productActions } from "./product-slice";
 export const fetchProduct = () => {
   return async (dispatch) => {
     const fetchData = async () => {
-      const response = await fetch("https://fakestoreapi.com/products?limit=5");
+      const response = await fetch("https://fakestoreapi.com/products");
 
       if (!response.ok) return;
       const data = await response.json();

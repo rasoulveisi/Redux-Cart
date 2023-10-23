@@ -1,13 +1,29 @@
-import { Row } from "react-bootstrap";
+import { Button, Row } from "react-bootstrap";
 import ProductItem from "./ProductItem";
 import { useSelector } from "react-redux";
+import React, { useState } from "react";
 
 const Products = () => {
   const products = useSelector((state) => state.product.items);
+  const [filter, setFilter] = useState(products);
+
+  const onFilter = (cat) => {
+    let filteredProduct = products.filter((x) => x.category === cat);
+    setFilter(filteredProduct);
+  };
+
+  const onRemoveFilter = () => {
+    setFilter(products);
+  };
 
   return (
     <Row>
-      {products.map((product) => (
+      <div className="px-0 mb-3 d-flex gap-3">
+        <Button onClick={() => onRemoveFilter()}>All</Button>
+        <Button onClick={() => onFilter("men's clothing")}>Men</Button>
+        <Button onClick={() => onFilter("women's clothing")}>Women</Button>
+      </div>
+      {filter.map((product) => (
         <ProductItem
           key={product.id}
           id={product.id}
