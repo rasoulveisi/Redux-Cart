@@ -2,12 +2,15 @@ import "./ProductItems.css";
 import { useDispatch } from "react-redux";
 import { Card, Button } from "react-bootstrap";
 import { cartActions } from "../../store/cart-slice";
+import { useNavigate } from "react-router-dom";
 
 const ProductItem = (props) => {
+  const navigate = useNavigate();
   const dispatch = useDispatch();
   const { title, price, description, id, image } = props;
 
-  const onAddToCart = () => {
+  const onAddToCart = (event) => {
+    event.stopPropagation();
     dispatch(
       cartActions.addItemToCart({
         id,
@@ -20,7 +23,12 @@ const ProductItem = (props) => {
   };
 
   return (
-    <Card className="col-lg-3 col-md-4 col-sm-6 col-12 p-2 ml-1 mb-2">
+    <Card
+      className="col-lg-3 col-md-4 col-sm-6 col-12 p-2 ml-1 mb-2"
+      onClick={() => {
+        navigate(`/product-detail/${id}`);
+      }}
+    >
       <Card.Img src={image} alt={title} className="mx-auto img-container" />
       <Card.Body className="d-flex flex-column">
         <Card.Title>{title}</Card.Title>

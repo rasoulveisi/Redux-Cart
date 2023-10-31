@@ -10,6 +10,7 @@ import { getCart, setCart } from "./store/cart-action";
 const Cart = lazy(() => import("./components/Cart/Cart"));
 const Products = lazy(() => import("./components/Shop/Products"));
 const Home = lazy(() => import("./components/Home/Home"));
+const ProductDetail = lazy(() => import("./components/Shop/ProductDetail"));
 
 let isInitial = true;
 
@@ -46,6 +47,7 @@ function App() {
               <Route path="/" element={<Home />} />
               <Route path="/products" element={<Products />} />
               <Route path="/cart" element={<Cart />} />
+              <Route path="/product-detail/:id" element={<ProductDetail />} />
             </Route>
           </Routes>
         </Suspense>
